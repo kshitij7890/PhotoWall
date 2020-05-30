@@ -48,6 +48,6 @@ class Main extends Component {
                <Title title={'Photowall'}/>
                <PhotoWall posts={this.state.posts} onRemovePhoto={this.removePhoto} />
             </div>
-    }
+    }//**there in PhotoWall there are two props one for mapping over current state as an array this.state and another as a function removePhoto
 }
 export default Main
