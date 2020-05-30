@@ -7,7 +7,7 @@ function PhotoWall(props){
   return (
 <div>
           <a className="addIcon" onClick={props.onNavigate} href="#AddPhoto"> </a>
-        {/* <button onClick={props.onNavigate} className="addIcon">  </button>*/}
+        
           <div className="photoGrid">
           {props.posts.map((post,index) => <Photo key={index} post={post} onRemovePhoto={props.onRemovePhoto}/>)}
         </div>
