@@ -104,9 +104,9 @@ body {
 }
 .addIcon {
  background: url("https://image.flaticon.com/icons/svg/60/60740.svg") center no-repeat;
- background-size: contain;
+ background-size: contain;/*scales the image to the req size*/
  padding: 40px;
- display: table;
+ display: table;/*displays in center*/
  margin: 20px auto;
  border: none;
 }
