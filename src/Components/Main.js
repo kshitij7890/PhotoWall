@@ -2,6 +2,7 @@ import React,{Component} from 'react'
 import Title from './Title'
 import PhotoWall from './PhotoWall'
 import AddPhoto from './AddPhoto'
+import {Route} from 'react-router-dom'
 
 class Main extends Component {
     constructor(){
@@ -22,10 +23,9 @@ class Main extends Component {
            description: "On a vacation!",
            imageLink: "https://fm.cnbc.com/applications/cnbc.com/resources/img/editorial/2017/08/24/104670887-VacationExplainsTHUMBWEB.1910x1000.jpg"
          }],//whenever we udate the array we change the state of the component
-           screen: 'photos'//can be either photos or addPhoto //check navigate fn
       }
       this.removePhoto = this.removePhoto.bind(this);//this is always properly bound
-      this.navigate = this.navigate.bind(this);
+
     //  console.log("constructor");
     }
 //we want when clicked on remove it should retrigger the render method!
@@ -47,11 +47,7 @@ class Main extends Component {
     //of current state and updating array.
 
 
-    navigate(){
-      this.setState({
-        screen: 'addPhoto'//changes state from photos to addPhoto
-      })
-    }
+
 
     componentDidMount(){//if in future use want to fetch data from database do it inside component did mount
     //console.log("componentDidMount()");
@@ -68,23 +64,19 @@ class Main extends Component {
     }
 
     render() {//console.log("render");
-      return <div>{
-        this.state.screen === 'photos' && (
-        <div>
-               <Title title={'Photowall'}/>
-               <PhotoWall posts={this.state.posts} onRemovePhoto={this.removePhoto} onNavigate={this.navigate} />
-       </div>
-     )
-     }
+      return (<div>
 
-     {
-       this.state.screen === 'addPhoto' && (
-       <div>
-               <AddPhoto/>
-      </div>
-      )
-     }
-    </div>
+         <Route exact path ="/" render={() => (
+           <div>
+                  <Title title={'Photowall'}/>
+                  <PhotoWall posts={this.state.posts} onRemovePhoto={this.removePhoto} onNavigate={this.navigate} />
+          </div>
+
+        )}/>
+
+      <Route path="/AddPhoto" component={AddPhoto}/>
+
+    </div>)
 
     }//**there in PhotoWall there are two props one for mapping over current state as an array this.state and another as a function removePhoto
 }
