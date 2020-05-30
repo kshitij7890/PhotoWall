@@ -5,9 +5,10 @@ class AddPhoto extends Component {
        return (
    <div>
        <div className="form">
+         <h1>Photowall</h1>
          <form onSubmit={this.handleSubmit}>
               <input type ="text" placeholder="Link" name="link"/>
-              <input type ="text" placeholder="Desciption" name="description"/>
+              <input type ="text" placeholder="Description" name="description"/>
               <button> Post </button>
          </form>
        </div>
