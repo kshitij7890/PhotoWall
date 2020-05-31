@@ -7,7 +7,7 @@ import {Route} from 'react-router-dom'
 class Main extends Component {
     constructor(){
       super()
-      this.state = {
+      this.state = { 
         posts:[{
            id: 0,
            description: "beautiful landscape",
