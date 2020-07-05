@@ -34,16 +34,16 @@ body {
  background: offwhite;
 }
 .photoGrid {
- display: flex;
- flex-wrap: wrap;
+ display: flex; /* all children elements are displayed horizontally by default*/
+ flex-wrap: wrap; /* flex item can go to the next line */
  max-width: 1000px;
  margin: 0 auto;
 }
 .figure {
- flex-basis: calc(33.333% - 4rem);
+ flex-basis: calc(33.333% - 4rem); /* width of each */
  border: 1px solid #d3d3d3;
  padding: 2rem;
- flex-grow: 1;
+ flex-grow: 1; /* if in same row share same width and taking up extra space */
  margin: 0 2rem 2rem 2rem;
 }
 .figure .single-photo {
@@ -121,7 +121,7 @@ button, .button {
  background: none;
  flex-basis: 48%;
  display: inline-block;
- line-height: 2;
+ line-height: 2; /* uper and niche ka space */
  text-decoration: none;
  padding: 5px;
  text-align: center;
@@ -165,7 +165,7 @@ button:hover,.button:hover, button:focus, .button:focus {
  border: 0;
  margin: 0 0 15px;
  padding: 15px;
- box-sizing: border-box;
+ box-sizing: border-box; /* width remains 100% ...extra padding is not disturbed */
  font-size: 14px;
  }
 .form button {

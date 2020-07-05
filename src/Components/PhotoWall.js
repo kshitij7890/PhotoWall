@@ -12,9 +12,9 @@ function PhotoWall(props){
           <div className="photoGrid">
           {props.posts
             .sort(function(x,y){
-              return y.id- x.id
+              return y.id- x.id //descending order
             })
-            .map((post,index) => <Photo key={index} post={post} onRemovePhoto={props.onRemovePhoto}/>)}
+            .map((post,index) => <Photo key={index} post={post} {...props} index={index}/>)}
         </div>
 </div> );
 }
@@ -22,7 +22,7 @@ function PhotoWall(props){
 
 PhotoWall.propTypes={
   posts:PropTypes.array.isRequired,
-  onRemovePhoto:PropTypes.func.isRequired
+  //onRemovePhoto:PropTypes.func.isRequired
 }//these are the props we declared in main.js
 
 export default PhotoWall

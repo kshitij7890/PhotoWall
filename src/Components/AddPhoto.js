@@ -9,7 +9,7 @@ class AddPhoto extends Component {
 
 //--------------------------constructor() finished-----------------------------//
       handleSubmit(event) {
-          event.preventDefault();
+          event.preventDefault(); //to avoid rerendering of that page
           const imageLink = event.target.elements.link.value
           const description = event.target.elements.description.value
           const post = {
@@ -17,9 +17,9 @@ class AddPhoto extends Component {
               description: description,
               imageLink: imageLink
           }
-          if (description && imageLink){
-              this.props.onAddPhoto(post)
-            //  this.props.onHistory.push('/')
+          if (description && imageLink){ //if not null
+              this.props.addPost(post)
+              this.props.onHistory.push('/')
           }
 
       }
@@ -30,7 +30,6 @@ class AddPhoto extends Component {
        return (
    <div>
        <div className="form">
-         <h1>Photowall</h1>
          <form onSubmit={this.handleSubmit}>
               <input type ="text" placeholder="Link" name="link"/>
               <input type ="text" placeholder="Description" name="description"/>
